@@ -6,7 +6,7 @@ public interface MyAccountPages extends PageWithMenuFrame {
 	MyAccountPages addNewAddress(String type, String address, String name, String suite, String city, String state,
 			String zip, String phone, String instructions);
 	MyAccountPages addNewPhone(String name, String number);
-	MyAccountPages addNewCafe(String search, String cafeNumber);
+	MyAccountPages addNewCafe(String search, int cafeNumber);
 	DefaultMyAccountPages storeCreditCard(String nickname, String cardholderName, String type, 
 			String number, String expMonth, String expYear);
 	DefaultMyAccountPages storeGiftCard(String nickname, String cardNumber);

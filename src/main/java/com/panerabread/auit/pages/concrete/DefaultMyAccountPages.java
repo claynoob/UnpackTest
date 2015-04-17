@@ -1,6 +1,10 @@
 package com.panerabread.auit.pages.concrete;
 
+import org.openqa.selenium.WebElement;
+
 import com.panerabread.auit.pages.BasePage;
+import com.panerabread.auit.pages.OrderTimePage;
+import com.panerabread.auit.pages.OrderTypeLocationPage;
 import com.panerabread.auit.webdriverutils.AdvancedWebDriver;
 
 public class DefaultMyAccountPages extends BasePage {
@@ -10,7 +14,7 @@ public class DefaultMyAccountPages extends BasePage {
 		CANCEL_ADD_ADDRESS="button.btn:nth-child(2)", ADD_PHONE=".btn-primary", PHONE_NAME="#name", ADD_NUMBER="#number", 
 		SAVE_PHONE=".text-right > button:nth-child(1)", CANCEL_ADD_PHONE=".text-right > button:nth-child(1)",
 		ADD_FAV_CAFE=".btn-primary", SEARCH="#cafeSearch",
-		CHOOSE_CAFE="return (function b(){ return (function a(cafeId){var foundCafe = null; Array.prototype.slice.call(document.querySelectorAll('.cafeName')).forEach(function(cafe) {if(cafe.innerHTML.indexOf(cafeId) > 0) {foundCafe = cafe;}}); return foundCafe;}) ('601272').parentElement.parentElement.nextSibling.nextSibling.getElementsByTagName('a')[0]})();",
+		CHOOSE_CAFE="return (function b(){ return (function a(cafeId){var foundCafe = null; Array.prototype.slice.call(document.querySelectorAll('.cafeName')).forEach(function(cafe) {if(cafe.innerHTML.indexOf(cafeId) > 0) {foundCafe = cafe;}}); return foundCafe;}) ('%s').parentElement.parentElement.nextSibling.nextSibling.getElementsByTagName('a')[0]})();",
 		ADD_CREDIT_CARD="my-cards.ng-scope > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h1:nth-child(1) > button:nth-child(1)",
 		NICKNAME="#cardName", CARDHOLDER_NAME="#cardHolderName", CARD_TYPE="select.ng-invalid",
 		CARD_NUMBER="#cardNum", EXPIRY_MONTH=".col-xs-7 > select:nth-child(2)",
@@ -53,10 +57,28 @@ public class DefaultMyAccountPages extends BasePage {
 			return PageFactory.getMyAccountPages(driver());
 		}
 		
-		public DefaultMyAccountPages addNewCafe(String search, String cafeNumber) {
+		/*public DefaultMyAccountPages addNewCafe(String search, String cafeNumber) {
 			driver().clickByCSS(this.ADD_FAV_CAFE);
 			driver().findByCSS(this.SEARCH).sendKeys(search);
-			driver().findByJavascript(String.format(this.CHOOSE_CAFE, cafeNumber)).click();
+			driver().clickByJavascript(String.format(this.CHOOSE_CAFE, cafeNumber));
+			return PageFactory.getMyAccountPages(driver());
+		}*/
+		
+		public DefaultMyAccountPages addNewCafe(String search, int cafeId) {
+			searchForCafe(search);
+			return addNewCafe(cafeId);
+		}
+
+		public DefaultMyAccountPages searchForCafe(String search) {
+			driver().clickByCSS(this.ADD_FAV_CAFE);
+			WebElement searchBox = driver().findByCSS(this.SEARCH);
+			searchBox.sendKeys(search);
+			driver().pause(5000);
+			return this;
+		}
+
+		public DefaultMyAccountPages addNewCafe(int cafeId) {
+			driver().clickByJavascript(String.format(this.CHOOSE_CAFE, cafeId));
 			return PageFactory.getMyAccountPages(driver());
 		}
 		

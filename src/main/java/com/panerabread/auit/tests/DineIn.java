@@ -11,7 +11,7 @@ public class DineIn {
 	@Test
 	public void DineInRegManualCC() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDineInOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startDineInOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.chooseCafe("02215", 601272).enterTableNumber("23").clickCategoryPlacard("Pastas")
 				.orderItem("Pasta Primavera").goToCheckout().dismissAllModals().payWithManualCC(CardTypes.VISA);
 		driver.quit();
@@ -61,20 +61,20 @@ public class DineIn {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
 		PageFactory.getQARCHome(driver).startDineInOrder().signIn("chaley.tester", "bread3")
 			.updateAccountInfo("ChaleyTaylor2", "Stanfield", "204 Mallard Drive", "Statesboro", "GA", "30458",
-					"9122221113", "chaley.stanfield@panerabread.com");
+					"9122221113", "fortifyqaauto@gmail.com");
 		driver.quit();
 	}
 	@Test
 	public void addFavoriteCafe() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
 		PageFactory.getQARCHome(driver).startDineInOrder().signIn("chaley.tester", "bread3")
-			.addFavoriteCafe().addNewCafe("63127", "600668");
+			.addFavoriteCafe().addNewCafe("63127", 600668);
 		driver.quit();
 	}
 	@Test
 	public void addStoredCC() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDineInOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startDineInOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 			.addCard().storeCreditCard(null, "FortifyAuto1", "DISC", "6011000000000004", "07", "2020");
 		driver.quit();
 	}
@@ -129,7 +129,7 @@ public class DineIn {
 	@Test
 	public void orderWithRewardsModal() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDineInOrder().signIn("chaley.stanfield@panerabread.com", "bread3")
+		PageFactory.getQARCHome(driver).startDineInOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.chooseCafe("02215", 601272).enterTableNumber("23").clickCategoryPlacard("Pastas")
 				.orderItem("Pasta Primavera").goToCheckout().dismissBeverageUpsell().selectRewards("Free Pasta")
 				.freeOrderCheckout();

@@ -19,7 +19,7 @@ public class RPUNow {
 	@Test
 	public void RPUNowRegStoredCC() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startRPUOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startRPUOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.chooseCafe("02215", 601272).orderForASAP().clickCategoryPlacard("Pastas")
 				.orderItem("Chicken Tortellini Alfredo").goToCheckout().dismissAllModals()
 				.payWithStoredCC("visa");
@@ -67,13 +67,13 @@ public class RPUNow {
 	public void addFavoriteCafe() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
 		PageFactory.getQARCHome(driver).startRPUOrder().signIn("chaley.tester", "bread3")
-			.addFavoriteCafe().addNewCafe("Savannah, GA", "204389");
+			.addFavoriteCafe().addNewCafe("Savannah, GA", 204389);
 		driver.quit();
 }
 	@Test
 	public void addStoredCC() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startRPUOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startRPUOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 			.addCard().storeCreditCard(null, "FortifyAuto", "MAST", "5500000000000004", "07", "2020");
 		driver.quit();
 }
@@ -109,7 +109,7 @@ public class RPUNow {
 	@Test
 	public void saveFavoriteItem() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startRPUOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startRPUOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 			.chooseCafe("02215", 601272).orderForASAP().clickCategoryPlacard("Pastas")
 			.orderItem("Chicken Tortellini Alfredo").goToCheckout().dismissAllModals()
 			.addFavoriteItem("Chicken Tortellini Alfredo", "AutoFavPasta");
@@ -127,7 +127,7 @@ public class RPUNow {
 	@Test
 	public void orderWithRewardsModal() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startRPUOrder().signIn("chaley.stanfield@panerabread.com", "bread3")
+		PageFactory.getQARCHome(driver).startRPUOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.chooseCafe("02215", 601272).orderForASAP().clickCategoryPlacard("Pastas")
 				.orderItem("Pasta Primavera").goToCheckout().dismissBeverageUpsell().selectRewards("Free Pasta")
 				.freeOrderCheckout();

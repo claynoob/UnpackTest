@@ -11,7 +11,7 @@ public class DeliveryNow {
 	@Test
 	public void DeliveryRegManualCC() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("chaley.stanfield@panerabread.com", "bread3")
+		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.enterDeliveryAddress("201 Brookline Ave Boston, MA").chooseDelAddressType("Dormitory")
 				.enterPhoneNumber("9126544598").orderForASAP().clickCategoryPlacard("Pastas")
 				.orderItem("Pasta Primavera").goToCheckout().dismissAllModals().payWithManualCC(CardTypes.VISA);
@@ -70,7 +70,7 @@ public class DeliveryNow {
 	public void addFavoriteCafe() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
 		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("chaley.tester", "bread3")
-			.addFavoriteCafe().addNewCafe("Savannah, GA", "204389");
+			.addFavoriteCafe().addNewCafe("95630", 601591);
 		driver.quit();
 	}
 	@Test
@@ -90,7 +90,7 @@ public class DeliveryNow {
 	@Test
 	public void addStoredAddress() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("chaley.tester", "bread3")
+		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 			.addAddress().addNewAddress("Home", "217 S Tillman St", null, null, "Glennville", "GA", "30427",
 					"9122375210", null);
 		driver.quit();
@@ -132,7 +132,7 @@ public class DeliveryNow {
 	@Test
 	public void orderWithRewardsModal() {
 		AdvancedWebDriver driver = AdvancedWebDriverFactory.getFirefoxDriver(10);
-		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("chaley.stanfield@panerabread.com", "bread3")
+		PageFactory.getQARCHome(driver).startDeliveryOrder().signIn("fortifyqaauto@gmail.com", "bread3")
 				.enterDeliveryAddress("201 Brookline Ave Boston, MA").chooseDelAddressType("Dormitory")
 				.enterPhoneNumber("9126544598").orderForASAP().clickCategoryPlacard("Pastas")
 				.orderItem("Pasta Primavera").goToCheckout().dismissBeverageUpsell().selectRewards("Free Pasta")
