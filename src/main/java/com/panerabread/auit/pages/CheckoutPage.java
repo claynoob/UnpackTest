@@ -1,14 +1,14 @@
 package com.panerabread.auit.pages;
 
-public interface CheckoutPage {
-	OrderConfirmationPage payWithManualCC(CardTypes type);
-	OrderConfirmationPage payWithManualGC(String GCNum);
-	OrderConfirmationPage payWithStoredCC(String cardName);
-	OrderConfirmationPage payWithStoredGC();
+import java.io.IOException;
+
+public interface CheckoutPage extends PageWithMenuFrame {
+	OrderConfirmationPage payWithCC(CardTypes type, String number, String storedManual, String nameStoredCC, boolean storeCC);
+	OrderConfirmationPage payWithGC(String GCNum, String storedManual, boolean storeGC);
+	OrderConfirmationPage payWithGCAndCC(String GCNum, String GCStoredManual,
+			boolean storeGC, CardTypes type, String CCNum, String CCStoredManual, String nameStoredCC, boolean storeCC);
 	OrderConfirmationPage freeOrderCheckout();
 	
-	CheckoutPage populateCheckoutFormManualCC(CheckoutPageConfig config);
-
 	OrderConfirmationPage submit();
 		
 	CheckoutPage dismissBeverageUpsell();
@@ -24,4 +24,12 @@ public interface CheckoutPage {
 	CheckoutPage addFavoriteItem(String item, String name);
 	CheckoutPage addFavoriteOrder(String name);
 	CheckoutPage dismissAllModals();
+	CheckoutPage deleteItem(Boolean isCombo, String item, Boolean yesDelete);
+	CheckoutPage duplicateItem(Boolean isCombo, String item);
+	CheckoutPage customizeItem(Boolean isCombo, String item);
+	CheckoutPage verifyItemPrice(String item, float expectedPrice);
+	
+	CheckoutPage verifyCardDisplaysInDropDown(String ccInfo);
+	CheckoutPage verifyCardNotInDropDown(String ccInfo);
+	CheckoutPage verifyItemPrices() throws IOException;
 }

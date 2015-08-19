@@ -1,9 +1,11 @@
 package com.panerabread.auit.webdriverutils;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver.Navigation;
@@ -17,13 +19,19 @@ public interface AdvancedWebDriver {
 	 * @see com.panerabread.auit.webdriverutils.AdvancedWebDriver#wait(int)
 	 */
 	public abstract void pause(int milliseconds);
+	
+	public abstract boolean checkPageTitle(String title);
+	
+	public boolean checkPageURL(String url);
 		
 	public abstract Map<String, String> getState();
-
+	
 	/* (non-Javadoc)
 	 * @see com.panerabread.auit.webdriverutils.AdvancedWebDriver#findByJavascript(java.lang.String)
 	 */
 	public abstract WebElement findByJavascript(String script);
+	
+	public abstract Collection<Object[]> countByJavascript(String script);
 
 	/* (non-Javadoc)
 	 * @see com.panerabread.auit.webdriverutils.AdvancedWebDriver#clickByJavascript(java.lang.String)
@@ -95,6 +103,19 @@ public interface AdvancedWebDriver {
 
 	public abstract void quit();
 
-	public abstract TargetLocator switchTo();
+	public abstract TargetLocator switchTo();	
 	
+	String getDate();
+	
+	String getTime();
+	
+	String getDateTime();
+
+	String getDateTimeNumbers();
+	
+	String getLaterDate(int daysOut);
+	
+	String getDayOfWeek(String myDate) throws ParseException;
+	
+	void captureScreenshot() throws IOException;
 }

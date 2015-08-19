@@ -1,19 +1,28 @@
 package com.panerabread.auit.pages;
 
 public class CheckoutPageConfig {
-	public final String	AMEX_TEST_NUMBER = "340000000000009";
-	private String specialInstructions, specialcode, cardHolderName,
-			cardNumber, email, phone, expireMonth, expireYear;
-	private CardTypes cardType;
+	
+	private String specialInstructions, specialcode, cardHolderName, securityCode, billingZip,
+			cardNumber, email, phone, expireMonth, expireYear, prodSpecialInstructions;
 
 	public CheckoutPageConfig(CardTypes ccType, String ccNum) {
-		this.setCardHolderName("Steven Seagull");
+		this.setCardHolderName("Mike Byson");
 		this.setCardNumber(ccNum);
-		this.setCardType(ccType);
 		this.setExpireMonth("02");
 		this.setExpireYear("2020");
 		this.setEmail("chaley.stanfield@panerabread.com");
 		this.setPhone("9122372317");
+		this.setProdSpecialInstructions("TEST ORDER DO NOT MAKE - PLEASE CANCEL");
+		this.setSecurityCode("723");
+		this.setBillingZip("63127");
+	}
+	
+	public String getProdSpecialInstructions() {
+		return prodSpecialInstructions;
+	}
+
+	public void setProdSpecialInstructions(String prodSpecialInstructions) {
+		this.prodSpecialInstructions = prodSpecialInstructions;
 	}
 
 	public String getSpecialInstructions() {
@@ -30,6 +39,22 @@ public class CheckoutPageConfig {
 
 	public void setSpecialcode(String specialcode) {
 		this.specialcode = specialcode;
+	}
+	
+	public String getSecurityCode() {
+		return securityCode;
+	}
+
+	public void setSecurityCode(String code) {
+		this.securityCode = code;
+	}
+	
+	public String getBillingZip() {
+		return billingZip;
+	}
+
+	public void setBillingZip(String zip) {
+		this.billingZip = zip;
 	}
 
 	public String getCardHolderName() {
@@ -78,16 +103,5 @@ public class CheckoutPageConfig {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getCardType() {
-		if (cardType != null) {
-			return cardType.name();
-		}
-		return null;
-	}
-
-	public void setCardType(CardTypes cardType) {
-		this.cardType = cardType;
 	}
 }

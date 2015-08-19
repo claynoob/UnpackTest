@@ -5,7 +5,6 @@ import com.panerabread.auit.webdriverutils.AdvancedWebDriver;
 public class BasePage {
 
 	protected AdvancedWebDriver driver;
-
 	
 	public BasePage(AdvancedWebDriver driver) {
 		setDriver(driver);

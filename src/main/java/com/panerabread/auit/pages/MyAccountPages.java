@@ -1,16 +1,25 @@
 package com.panerabread.auit.pages;
 
-import com.panerabread.auit.pages.concrete.DefaultMyAccountPages;
+import java.io.IOException;
 
 public interface MyAccountPages extends PageWithMenuFrame {
-	MyAccountPages addNewAddress(String type, String address, String name, String suite, String city, String state,
-			String zip, String phone, String instructions);
-	MyAccountPages addNewPhone(String name, String number);
+	MyAccountPages addNewAddress(String type, String address, String name, 
+			String city, String state, String zip, String phone, String instructions);
+	MyAccountPages addNewPhone();
 	MyAccountPages addNewCafe(String search, int cafeNumber);
-	DefaultMyAccountPages storeCreditCard(String nickname, String cardholderName, String type, 
-			String number, String expMonth, String expYear);
-	DefaultMyAccountPages storeGiftCard(String nickname, String cardNumber);
-	DefaultMyAccountPages editEmailPreferences(String emailPreferences, String rewardsAndAlerts,
+	MyAccountPages storeCreditCardOpt(CardTypes type);
+	MyAccountPages storeGiftCardOpt();
+	MyAccountPages editEmailPreferences(String emailPreferences, String rewardsAndAlerts,
 			String updatesAndSpecialOffers, String localNews, String inPersonOnlineEvents, 
 			String communicationsWithOtherMembers, String shareYourThoughts);
+	MyAccountPages addFavoriteCafe(String search, int cafeId);
+	MyAccountPages updateAccountInfo() throws IOException;
+	MyAccountPages removeDateAcctInfo();
+	MyAccountPages updateEmail(String email);
+	Boolean checkForPhone(String name, String number);
+	MyAccountPages deletePhone();
+	MyAccountPages setDefaultPhoneNum();
+	MyAccountPages editPhoneOpt() throws IOException;
+	MyAccountPages deleteCard(String nickname, String ccInfo, String expDate, Boolean deleteConfirm);
+	MyAccountPages deleteTestCards();
 }

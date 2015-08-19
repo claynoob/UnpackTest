@@ -1,16 +1,9 @@
 package com.panerabread.auit.pages;
 
-import com.panerabread.auit.pages.concrete.DefaultMyAccountPages;
-
-public interface OrderTypeLocationPage {
-	OrderTimePage chooseCafe(String search, int cafeId);
+public interface OrderTypeLocationPage extends PageWithMenuFrame {
+	OrderTimePage chooseCafe(String search, String cafeId);
 	OrderTimePage enterDeliveryAddress(String address);
-	void updateAccountInfo(String first, String last, String address, String city, String state, String zip, 
-			String phone, String email);
-	void updatePassword(String currentPassword, String newPassword, String confirmPassword);
-	DefaultMyAccountPages addAddress();
-	DefaultMyAccountPages addPhone();
-	DefaultMyAccountPages addFavoriteCafe();
-	DefaultMyAccountPages addCard();
-	DefaultMyAccountPages updateEmailPreferences();
+	OrderTypeLocationPage chooseRPU();
+	OrderTypeLocationPage chooseDelivery();
+	OrderTypeLocationPage chooseDineIn();
 }
